@@ -1,0 +1,20 @@
+apiVersion: flightctl.io/v1alpha1
+kind: Fleet
+metadata:
+  name: fleet-big
+spec:
+  selector:
+    matchLabels:
+      device: big
+  template:
+    metadata:
+      labels:
+        fleet: fleet-big
+    spec:
+      applications: []
+      config:
+        - name: motd
+          inline:
+            - path: /etc/motd
+              content: |
+                Hello!
